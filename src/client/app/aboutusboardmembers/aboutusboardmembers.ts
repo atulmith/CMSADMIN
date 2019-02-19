@@ -1,0 +1,1 @@
+export class aboutusboardmembersTS {AbmId:string;AbmName:string;AbmPosition:string;AbmSrNo:string;}

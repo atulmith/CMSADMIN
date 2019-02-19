@@ -1,0 +1,1 @@
+export class homepagessctoppersTS {HpstId:string;HpstName:string;HpstText:string;HpstSrNo:string;filename:string;filetype:string;filepath:string;}

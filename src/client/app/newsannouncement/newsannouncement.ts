@@ -1,0 +1,1 @@
+export class newsannouncementTS {NaId:string;NaTitle:string;NaSubTitle:string;NaDescription:string;NaSrNo:string;filename:string;filetype:string;filepath:string;filename2:string;filetype2:string;filepath2:string;newslink:string;}

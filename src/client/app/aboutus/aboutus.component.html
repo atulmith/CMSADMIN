@@ -1,0 +1,147 @@
+
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog width="425"></p-confirmDialog>
+
+    <h1>Create aboutus</h1><br/>
+<form [formGroup]="userform" >
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px;width:80%;">
+
+
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<!--<input pInputText type='text' [(ngModel)]='objVar.AboutusSchoolTrust' formControlName='AboutusSchoolTrust' /> -->
+<!--<label>Trust Name</label>-->
+Trust Name:
+<p-editor placeholder="Trust Name" [(ngModel)]="objVar.AboutusSchoolTrust" formControlName="AboutusSchoolTrust" [style]="{'height':'320px'}"></p-editor>
+</span>
+
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['AboutusSchoolTrust'].valid&&userform.controls['AboutusSchoolTrust'].touched">Trust Name  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<!--<input pInputText type='text' [(ngModel)]='objVar.AboutusLocality' formControlName='AboutusLocality' /> 
+<label>Locality</label>-->
+Locality:
+<p-editor placeholder="Locality" [(ngModel)]="objVar.AboutusLocality" formControlName="AboutusLocality" [style]="{'height':'320px'}"></p-editor>
+</span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['AboutusLocality'].valid&&userform.controls['AboutusLocality'].touched">Locality  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<!--<input pInputText type='text' [(ngModel)]='objVar.AboutusInfrastructure' formControlName='AboutusInfrastructure' /> 
+<label>Infrastructure</label>-->
+Infrastructure:
+<p-editor placeholder="Infrastructure" [(ngModel)]="objVar.AboutusInfrastructure" formControlName="AboutusInfrastructure" [style]="{'height':'320px'}"></p-editor>
+
+</span>
+
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['AboutusInfrastructure'].valid&&userform.controls['AboutusInfrastructure'].touched">Infrastructure  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<!--<input pInputText type='text' [(ngModel)]='objVar.AboutusFuturePlans' formControlName='AboutusFuturePlans' /> 
+<label>Future Plans</label>-->
+Future Plans:
+<p-editor placeholder="Future Plans" [(ngModel)]="objVar.AboutusFuturePlans" formControlName="AboutusFuturePlans" [style]="{'height':'320px'}"></p-editor>
+
+</span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['AboutusFuturePlans'].valid&&userform.controls['AboutusFuturePlans'].touched">Future Plans  Required
+</div>
+</div>
+</div>
+<div class="ui-grid-row" style="width:100%;"> 
+<div class="ui-g form-group" style="width:80%;">
+<div class="ui-g-12 ui-md-4" style="width:100%;float:left;">
+<div style="width:50%">
+<button pButton  (click)="onSubmit()" [disabled]="!userform.valid" label="Submit" ></button>
+<br/>
+
+</div>  
+<div style="width:50%;float:right;">
+<button pButton  (click)="clear()" label="Clear" ></button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</form>
+
+<p-dataTable [value]="objList" 
+	selectionMode="single" [rows]="10" [paginator]="true" (onRowSelect)="onRowSelectaboutus($event)" 
+	[(selection)]="selectedRow">
+
+ 
+<p-column field="AboutusSchoolTrust" [filter]="true" 
+filterPlaceholder="Search AboutusSchoolTrust"  header="AboutusSchoolTrust">
+</p-column>
+
+<p-column field="AboutusLocality" [filter]="true" 
+filterPlaceholder="Search AboutusLocality"  header="AboutusLocality">
+</p-column>
+
+<p-column field="AboutusInfrastructure" [filter]="true" 
+filterPlaceholder="Search AboutusInfrastructure"  header="AboutusInfrastructure">
+</p-column>
+
+<p-column field="AboutusFuturePlans" [filter]="true" 
+filterPlaceholder="Search AboutusFuturePlans"  header="AboutusFuturePlans">
+</p-column>
+
+ <p-column styleClass="col-button" header="Delete">
+                      <template let-col let-cont="rowData" pTemplate="body">
+                        <span [style.color]="cont[col.field]">{{cont[col.field]}}</span>
+                     </template>
+                    <template pTemplate="header">
+                            <button type="button" pButton icon="fa-refresh"></button>
+                    </template>
+                    <template let-cont="rowData" pTemplate="body">
+                            <button type="button" pButton (click)="deleteRow(cont)"  icon="fa-close" label="Delete"></button>
+                    </template>
+                </p-column>
+
+</p-dataTable>
+

@@ -1,0 +1,97 @@
+
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog width="425"></p-confirmDialog>
+
+    <h1>Create achievementsall</h1><br/>
+<form [formGroup]="userform" >
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px;width:80%;">
+
+
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.AaTitle' formControlName='AaTitle' /> <label>Title</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['AaTitle'].valid&&userform.controls['AaTitle'].touched">Title  Required
+</div>
+</div>
+</div>
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+
+<p-dropdown [style]="{'width':'90%'}" [options]="listoftypeofschool" [(ngModel)]="objVar.AaType" formControlName='AaType'></p-dropdown> 
+</span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['AaType'].valid&&userform.controls['AaType'].touched">Department  Required
+</div>
+</div>
+</div>
+
+
+<div class="ui-grid-row" style="width:100%;"> 
+<div class="ui-g form-group" style="width:80%;">
+<div class="ui-g-12 ui-md-4" style="width:100%;float:left;">
+<div style="width:50%">
+<button pButton  (click)="onSubmit()" [disabled]="!userform.valid" label="Submit" ></button>
+<br/>
+
+</div>  
+<div style="width:50%;float:right;">
+<button pButton  (click)="clear()" label="Clear" ></button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</form>
+
+<p-dataTable [value]="objList" 
+	selectionMode="single" [rows]="10" [paginator]="true" (onRowSelect)="onRowSelectachievementsall($event)" 
+	[(selection)]="selectedRow">
+ 
+<p-column field="AaTitle" [filter]="true" 
+filterPlaceholder="Search AaTitle"  header="AaTitle">
+</p-column>
+<p-column field="AaType" [filter]="true" 
+filterPlaceholder="Search Department"  header="Department">
+</p-column>
+<p-column styleClass="col-button" header="Go to Details">
+    <template let-col let-cont="rowData" pTemplate="body">
+    <span [style.color]="cont[col.field]">{{cont[col.field]}}</span>
+    </template>
+<template pTemplate="header">
+        <button type="button" pButton icon="ui-icon-refresh"></button>
+</template>
+<template let-cont="rowData" pTemplate="body">
+        <button type="button" pButton (click)="gotodetails(cont)"  icon="ui-icon-description" label="Go to Details"></button>
+</template>
+</p-column>
+ <p-column styleClass="col-button" header="Delete">
+                      <template let-col let-cont="rowData" pTemplate="body">
+                        <span [style.color]="cont[col.field]">{{cont[col.field]}}</span>
+                     </template>
+                    <template pTemplate="header">
+                            <button type="button" pButton icon="fa-refresh"></button>
+                    </template>
+                    <template let-cont="rowData" pTemplate="body">
+                            <button type="button" pButton (click)="deleteRow(cont)"  icon="fa-close" label="Delete"></button>
+                    </template>
+                </p-column>
+</p-dataTable>
+

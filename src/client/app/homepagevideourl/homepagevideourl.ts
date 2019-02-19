@@ -1,0 +1,1 @@
+export class homepagevideourlTS {HpvurlId:string;HpvurlTitle:string;HpvurlLink:string;}

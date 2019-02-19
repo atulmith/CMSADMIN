@@ -1,0 +1,1 @@
+export class homepageaddresslocationTS {HpalId:string;HpalTitle:string;HpalSchoolName:string;HpalAddress:string;HpalContactNos:string;HpalEmailid:string;HpalLocationCoordinates:string;}

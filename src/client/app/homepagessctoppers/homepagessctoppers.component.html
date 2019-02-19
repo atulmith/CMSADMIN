@@ -1,0 +1,165 @@
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog width="425"></p-confirmDialog>
+
+    <h1>Create homepagessctoppers</h1><br/>
+<form [formGroup]="userform" >
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px;width:80%;">
+
+
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpstName' formControlName='HpstName' /> <label>SSC Topper Name</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpstName'].valid&&userform.controls['HpstName'].touched">SSC Topper Name  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<!--<input pInputText type='text' [(ngModel)]='objVar.HpstText' formControlName='HpstText' /> 
+<label>SSC Topper Description</label>-->
+SSC Topper Description:
+<p-editor placeholder="SSC Topper Description" [(ngModel)]="objVar.HpstText" formControlName="HpstText" [style]="{'height':'320px'}"></p-editor>
+
+</span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpstText'].valid&&userform.controls['HpstText'].touched">SSC Topper Description  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpstSrNo' formControlName='HpstSrNo' /> <label>SrNo</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpstSrNo'].valid&&userform.controls['HpstSrNo'].touched">SrNo  Required
+</div>
+</div>
+</div>
+
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [readonly]="true" [(ngModel)]='objVar.filename' formControlName='filename' /> <label>File name</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['filename'].valid&&userform.controls['filename'].touched">File to Upload  Required
+</div>
+</div>
+</div>
+
+<div  class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+
+<h2>Image Size : 160x170 px only</h2>
+</span>
+</div>
+</div>
+</div> 
+ 
+
+ 
+
+    <div class="ui-grid-row" style="width:100%;">
+        <div class="ui-g form-group" style="width:80%;">
+            <div class="ui-g-12 ui-md-4" style="width:100%;">
+
+                <p-fileUpload name="files" url="{{mybaseurl}}fileupload/multiplefiles"  (onUpload)="onUpload($event)" multiple="false">
+                <template pTemplate type="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                </ul>
+                </template>
+                </p-fileUpload>
+            <ul *ngIf="fileuploadarr.length">
+            <li *ngFor="let file1 of fileuploadarr">{{file1.fileName}}</li>
+            </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+
+<div class="ui-grid-row" style="width:100%;"> 
+<div class="ui-g form-group" style="width:80%;">
+<div class="ui-g-12 ui-md-4" style="width:100%;float:left;">
+<div style="width:50%">
+<button pButton  (click)="onSubmit()" [disabled]="!userform.valid" label="Submit" ></button>
+<br/>
+
+</div>  
+<div style="width:50%;float:right;">
+<button pButton  (click)="clear()" label="Clear" ></button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</form>
+
+<p-dataTable [value]="objList" 
+	selectionMode="single" [rows]="10" [paginator]="true" (onRowSelect)="onRowSelecthomepagessctoppers($event)" 
+	[(selection)]="selectedRow">
+
+ 
+<p-column field="HpstName" [filter]="true" 
+filterPlaceholder="Search HpstName"  header="HpstName">
+</p-column>
+
+<p-column field="HpstText" [filter]="true" 
+filterPlaceholder="Search HpstText"  header="HpstText">
+</p-column>
+
+<p-column field="HpstSrNo" [filter]="true" 
+filterPlaceholder="Search HpstSrNo"  header="HpstSrNo">
+</p-column>
+
+<p-column field="filename" [filter]="true" 
+filterPlaceholder="Search filename"  header="filename">
+</p-column>
+ <p-column styleClass="col-button" header="Delete">
+                      <template let-col let-cont="rowData" pTemplate="body">
+                        <span [style.color]="cont[col.field]">{{cont[col.field]}}</span>
+                     </template>
+                    <template pTemplate="header">
+                            <button type="button" pButton icon="fa-refresh"></button>
+                    </template>
+                    <template let-cont="rowData" pTemplate="body">
+                            <button type="button" pButton (click)="deleteRow(cont)"  icon="fa-close" label="Delete"></button>
+                    </template>
+                </p-column>  
+</p-dataTable>

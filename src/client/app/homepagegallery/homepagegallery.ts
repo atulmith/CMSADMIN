@@ -1,0 +1,1 @@
+export class homepagegalleryTS {HpgId:string;HpgTitle:string;HpgText:string;HpgLink:string;filename:string;filetype:string;filepath:string;}

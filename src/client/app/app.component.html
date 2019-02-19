@@ -1,0 +1,338 @@
+<!--<div *ngIf="loggedIn">-->
+<div [ngClass]="{'layout-wrapper':true,'layout-compact':layoutCompact}">
+
+    <div [ngClass]="{'layout-container':true,'menu-layout-static':(layoutMode=='static'||layoutMode=='horizontal'),
+            'menu-layout-overlay':(layoutMode=='overlay'),'menu-layout-horizontal':(layoutMode=='horizontal')}">
+        <!-- Top Bar -->
+        <div class="topbar clearfix">
+            <div class="topbar-left">
+                <div class="logo"></div>
+            </div>
+
+            <div class="topbar-right">
+                <a id="menu-button" href="#">
+                    <i></i>
+                </a>
+
+                <a id="topbar-menu-button" href="#">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="topbar-items fadeInDown animated">
+                    <li class="profile-item" [hidden]="profileMode!='top'&&layoutMode!='horizontal'">
+                        <a href="#">
+                            <div class="profile-image"></div>
+                            <span class="topbar-item-name">Mr/Ms. Your Name</span>
+                        </a>
+
+                        <ul class="ultima-menu animated">
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">person</i>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">security</i>
+                                    <span>Privacy</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">settings_applications</i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="">
+                                    <i class="material-icons">power_settings_new</i>
+                                    <span>Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="topbar-icon material-icons">settings</i>
+                            <span class="topbar-item-name">Settings</span>
+                        </a>
+                        <ul class="ultima-menu animated">
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">palette</i>
+                                    <span>Change Theme</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">favorite_border</i>
+                                    <span>Favorites</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">lock</i>
+                                    <span>Lock Screen</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">wallpaper</i>
+                                    <span>Wallpaper</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="topbar-icon material-icons animated swing">message</i>
+                            <span class="topbar-badge animated rubberBand">5</span>
+                            <span class="topbar-item-name">Messages</span>
+                        </a>
+                        <ul class="ultima-menu animated">
+                            <li role="menuitem">
+                                <a href="#" class="topbar-message">
+                                    <img src="resources/layout/images/avatar1.png" width="35" />
+                                    <span>Give me a call</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#" class="topbar-message">
+                                    <img src="resources/layout/images/avatar2.png" width="35" />
+                                    <span>Sales reports attached</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#" class="topbar-message">
+                                    <img src="resources/layout/images/avatar3.png" width="35" />
+                                    <span>About your invoice</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#" class="topbar-message">
+                                    <img src="resources/layout/images/avatar2.png" width="35" />
+                                    <span>Meeting today at 10pm</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#" class="topbar-message">
+                                    <img src="resources/layout/images/avatar4.png" width="35" />
+                                    <span>Out of office</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="topbar-icon material-icons">timer</i>
+                            <span class="topbar-badge animated rubberBand">4</span>
+                            <span class="topbar-item-name">Notifications</span>
+                        </a>
+                        <ul class="ultima-menu animated">
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">bug_report</i>
+                                    <span>Pending tasks</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">event</i>
+                                    <span>Meeting today at 3pm</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">file_download</i>
+                                    <span>Download documents</span>
+                                </a>
+                            </li>
+                            <li role="menuitem">
+                                <a href="#">
+                                    <i class="material-icons">flight</i>
+                                    <span>Book flight</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="search-item">
+                        <span class="md-inputfield">
+                            <input type="text">
+                            <label>Search</label>
+                            <i class="topbar-icon material-icons">search</i>
+                        </span>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div [ngClass]="{'layout-menu':true,'layout-menu-dark':darkMenu}">
+            <div class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <div class="profile" [hidden]="profileMode!='inline'||layoutMode=='horizontal'">
+                        <div class="profile-image"></div>
+                        <a id="profile-options" href="#">
+                            <span class="profile-name">
+                               <ng-container *ngIf="userName"> 
+                                {{userName}} 
+                               </ng-container>       
+                            </span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                        </a>
+                    </div>
+
+                    <ul id="profile-menu" class="ultima-menu" [hidden]="profileMode!='inline'">
+                        <!--<li role="menuitem">
+                            <a href="#" class="ripplelink">
+                                <i class="material-icons">person</i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="ripplelink">
+                                <i class="material-icons">security</i>
+                                <span>Privacy</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="ripplelink">
+                                <i class="material-icons">settings_application</i>
+                                <span>Settings</span>
+                            </a>
+                        </li>-->
+                        <li role="menuitem">
+                            <a [routerLink]="['/login']" class="ripplelink" (click)="logout()">
+                                <i class="material-icons">power_settings_new</i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul id="main-menu" class="ultima-menu clearfix">
+
+
+                        <li role="menuitem" *ngIf="!loggedIn"><a [routerLink]="['/login']"><i class="material-icons">login</i><span>login Form</span></a></li>
+                        <li role="menuitem" *ngIf="loggedIn">
+                            <a href="#" class="ripplelink"><i class="material-icons">palette</i><span>HomePage</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu">
+                                
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagedescriptionimg']"><i class="material-icons">dashboard</i><span>Home Page Description Img</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagegallery']"><i class="material-icons">dashboard</i><span>Home Page Gallery</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagelatestnews']"><i class="material-icons">dashboard</i><span>Home Page Latest News</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagesomenumbers']"><i class="material-icons">dashboard</i><span>Home Page Some Numbers</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagessctoppers']"><i class="material-icons">dashboard</i><span>Home Page SSC Toppers</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageupcomingevents']"><i class="material-icons">dashboard</i><span>Home Page Upcoming</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageschoolresults']"><i class="material-icons">dashboard</i><span>Home Page School Res</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageschoolresultsdetails']"><i class="material-icons">dashboard</i><span>Home Page School Res. Det.</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagevideourl']"><i class="material-icons">dashboard</i><span>Home Page Video</span></a></li> 
+                                 <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageaddresslocation']"><i class="material-icons">dashboard</i><span>Home Page Address Location</span></a></li> 
+  
+                             </ul>
+                        </li>
+                        <li role="menuitem" *ngIf="loggedIn">
+                            <a href="#" class="ripplelink"><i class="material-icons">palette</i><span>AboutUs</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu">
+                                
+                                 <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/aboutus']"><i class="material-icons">dashboard</i><span>About Us</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/aboutusboardmembers']"><i class="material-icons">dashboard</i><span>About Us Board Members</span></a></li> 
+                             </ul>
+                        </li>
+
+                        <li role="menuitem" *ngIf="loggedIn">
+                            <a href="#" class="ripplelink"><i class="material-icons">palette</i><span>Academics</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu">
+                                
+ 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicsmidssckarate']"><i class="material-icons">dashboard</i><span>Academics SSC Karate</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicsprimarysecondarySchool']"><i class="material-icons">dashboard</i><span>Academics PrimarySecondarySchool</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicspriprimary']"><i class="material-icons">dashboard</i><span>Academics PrePrimary</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicsschoolactivities']"><i class="material-icons">dashboard</i><span>Academics SchoolActivities</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academistopstudteachers']"><i class="material-icons">dashboard</i><span>Academics TopStudTeachers</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academistopstudteachersdetails']"><i class="material-icons">dashboard</i><span>Academics TopStudTeachers Details</span></a></li> 
+
+                             </ul>
+                        </li>
+
+                      <li role="menuitem" *ngIf="loggedIn">
+                            <a href="#" class="ripplelink"><i class="material-icons">palette</i><span>Achievements</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu">
+  
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/achievementsall']"><i class="material-icons">dashboard</i><span>Achievements All</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/achivementsgraphs']"><i class="material-icons">dashboard</i><span>Achivements Graphs</span></a></li> 
+                             </ul>
+                        </li>
+                        <li role="menuitem" *ngIf="loggedIn">
+                            <a href="#" class="ripplelink"><i class="material-icons">palette</i><span>Others</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu">
+                                
+                                 <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/principaldesk']"><i class="material-icons">dashboard</i><span>Principal Desk</span></a></li> 
+                                 <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/gallery']"><i class="material-icons">dashboard</i><span>Gallery</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/newsannouncement']"><i class="material-icons">dashboard</i><span>News Announcement</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/specialaid']"><i class="material-icons">dashboard</i><span>Special Aid</span></a></li> 
+                            </ul>
+                        </li>
+
+
+                        <!--<li role="menuitem" *ngIf="loggedIn">
+                            <a href="#" class="ripplelink"><i class="material-icons">palette</i><span>Masters</span><i class="material-icons">keyboard_arrow_down</i></a>
+                            <ul role="menu">
+                                
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagedescriptionimg']"><i class="material-icons">dashboard</i><span>Home Page Description Img</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagegallery']"><i class="material-icons">dashboard</i><span>Home Page Gallery</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagelatestnews']"><i class="material-icons">dashboard</i><span>Home Page Latest News</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagesomenumbers']"><i class="material-icons">dashboard</i><span>Home Page Some Numbers</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagessctoppers']"><i class="material-icons">dashboard</i><span>Home Page SSC Toppers</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageupcomingevents']"><i class="material-icons">dashboard</i><span>Home Page Upcoming</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageschoolresults']"><i class="material-icons">dashboard</i><span>Home Page School Res</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageschoolresultsdetails']"><i class="material-icons">dashboard</i><span>Home Page School Res. Det.</span></a></li>
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepagevideourl']"><i class="material-icons">dashboard</i><span>Home Page Video</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/aboutus']"><i class="material-icons">dashboard</i><span>About Us</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/aboutusboardmembers']"><i class="material-icons">dashboard</i><span>About Us Board Members</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/homepageaddresslocation']"><i class="material-icons">dashboard</i><span>Home Page Address Location</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/principaldesk']"><i class="material-icons">dashboard</i><span>Principal Desk</span></a></li> 
+
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicsmidssckarate']"><i class="material-icons">dashboard</i><span>Academics SSC Karate</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicsprimarysecondarySchool']"><i class="material-icons">dashboard</i><span>Academics PrimarySecondarySchool</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicspriprimary']"><i class="material-icons">dashboard</i><span>Academics PrePrimary</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academicsschoolactivities']"><i class="material-icons">dashboard</i><span>Academics SchoolActivities</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academistopstudteachers']"><i class="material-icons">dashboard</i><span>Academics TopStudTeachers</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/academistopstudteachersdetails']"><i class="material-icons">dashboard</i><span>Academics TopStudTeachers Details</span></a></li> 
+
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/achievementsall']"><i class="material-icons">dashboard</i><span>Achievements All</span></a></li> 
+                                
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/achivementsgraphs']"><i class="material-icons">dashboard</i><span>Achivements Graphs</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/gallery']"><i class="material-icons">dashboard</i><span>Gallery</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/newsannouncement']"><i class="material-icons">dashboard</i><span>News Announcement</span></a></li> 
+                                <li  *ngIf="userrightsScreen('admin') && loggedIn"  role="menuitem"><a [routerLink]="['/specialaid']"><i class="material-icons">dashboard</i><span>Special Aid</span></a></li> 
+                            </ul>
+                        </li>-->
+
+  
+          
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-main">
+            <router-outlet></router-outlet>
+
+            <div class="footer">
+                <div class="card clearfix">
+                    <span class="footer-text-left">Fast Tech Info (8779386459 , 9146068205)</span>
+                    <span class="footer-text-right"><span class="ui-icon ui-icon-copyright"></span> <span>All Rights Reserved</span></span>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+<!--</div>-->
+
+<!--  DIV Code -- >
+
+<!--<section *ngIf="">-->
+<!--<div *ngIf="!loggedIn" class="card login-panel ui-fluid">
+    <sd-login></sd-login>
+</div>-->

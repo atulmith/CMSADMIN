@@ -1,0 +1,1 @@
+export class galleryTS {GalleryId:string;GalleryTitle:string;GallerySrNo:string;filename:string;filetype:string;filepath:string;GalleryType:string;}

@@ -1,0 +1,1 @@
+export class specialaidTS {SaId:string;SaTitle:string;SaDescriptionText:string;SaSrNo:string;}

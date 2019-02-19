@@ -1,0 +1,1 @@
+export class homepagelatestnewsTS {HplnId:string;HplnTitle:string;HplnDescription:string;SrNo:string;filename:string;filetype:string;filepath:string;}

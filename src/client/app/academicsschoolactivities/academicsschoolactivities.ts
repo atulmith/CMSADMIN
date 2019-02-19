@@ -1,0 +1,1 @@
+export class academicsschoolactivitiesTS {AsaId:string;AsaTitle:string;AsaDescription:string;}

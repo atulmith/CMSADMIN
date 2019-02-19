@@ -1,0 +1,1 @@
+export class academicsprimarysecondarySchoolTS {ApssId:string;ApssTitle:string;ApssDescription:string;SrNo:string;}

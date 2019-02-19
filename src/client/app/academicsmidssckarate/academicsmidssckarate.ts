@@ -1,0 +1,1 @@
+export class academicsmidssckarateTS {AmskId:string;AmskTitle:string;AmskDescription:string;AmskSrNo:string;filename:string;filetype:string;filepath:string;}

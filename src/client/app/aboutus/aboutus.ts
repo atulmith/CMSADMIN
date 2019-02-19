@@ -1,0 +1,1 @@
+export class aboutusTS {AboutusId:string;AboutusSchoolTrust:string;AboutusLocality:string;AboutusInfrastructure:string;AboutusFuturePlans:string;}

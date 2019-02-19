@@ -1,0 +1,2 @@
+export class principaldeskTS {PrincdId:string;
+    PrincdName:string;PrincdDescription:string;PrincdBioData:string;PrincdSrNo:string;filename:string;filetype:string;filepath:string;filename2:string;filetype2:string;filepath2:string;}

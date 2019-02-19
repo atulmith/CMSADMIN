@@ -1,0 +1,185 @@
+
+<p-growl [value]="msgs"></p-growl>
+<p-confirmDialog width="425"></p-confirmDialog>
+
+    <h1>Create homepagesomenumbers</h1><br/>
+<form [formGroup]="userform" >
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px;width:80%;">
+
+
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnMainTitle' formControlName='HpsnMainTitle' /> <label>Main Title</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnMainTitle'].valid&&userform.controls['HpsnMainTitle'].touched">Main title  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnFirstTitle' formControlName='HpsnFirstTitle' /> <label>First Title</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnFirstTitle'].valid&&userform.controls['HpsnFirstTitle'].touched">First title  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnFirstNos' formControlName='HpsnFirstNos' /> <label>First Nos</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnFirstNos'].valid&&userform.controls['HpsnFirstNos'].touched">First Nos  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnSecondTitle' formControlName='HpsnSecondTitle' /> <label>Second Title</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnSecondTitle'].valid&&userform.controls['HpsnSecondTitle'].touched">Second title  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnSecondNos' formControlName='HpsnSecondNos' /> <label>Second Nos</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnSecondNos'].valid&&userform.controls['HpsnSecondNos'].touched">Second Nos  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnThirdTitle' formControlName='HpsnThirdTitle' /> <label>Third Title</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnThirdTitle'].valid&&userform.controls['HpsnThirdTitle'].touched">Third title  Required
+</div>
+</div>
+</div>
+
+
+<div class='ui-grid-row' style='width:100%;'>
+<div class='ui-g form-group' style='width:80%;'>
+<div class='ui-g-12 ui-md-4' style='width:100%;'>
+<span class='md-inputfield'>
+<input pInputText type='text' [(ngModel)]='objVar.HpsnThirdNos' formControlName='HpsnThirdNos' /> <label>Third Nos</label></span>
+</div>
+</div>
+
+
+<div class="ui-grid-col-4">   
+<div class="ui-message ui-messages-error ui-corner-all" *ngIf="!userform.controls['HpsnThirdNos'].valid&&userform.controls['HpsnThirdNos'].touched">Third Nos  Required
+</div>
+</div>
+</div>
+<div class="ui-grid-row" style="width:100%;"> 
+<div class="ui-g form-group" style="width:80%;">
+<div class="ui-g-12 ui-md-4" style="width:100%;float:left;">
+<div style="width:50%">
+<button pButton  (click)="onSubmit()"  [disabled]="!userform.valid"  label="Submit" ></button>
+<br/>
+
+</div>  
+<div style="width:50%;float:right;">
+<button pButton  (click)="clear()" label="Clear" ></button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</form>
+
+<p-dataTable [value]="objList" 
+	selectionMode="single" [rows]="10" [paginator]="true" (onRowSelect)="onRowSelecthomepagesomenumbers($event)" 
+	[(selection)]="selectedRow">
+
+ 
+<p-column field="HpsnMainTitle" [filter]="true" 
+filterPlaceholder="Search HpsnMainTitle"  header="HpsnMainTitle">
+</p-column>
+
+<p-column field="HpsnFirstTitle" [filter]="true" 
+filterPlaceholder="Search HpsnFirstTitle"  header="HpsnFirstTitle">
+</p-column>
+
+<p-column field="HpsnFirstNos" [filter]="true" 
+filterPlaceholder="Search HpsnFirstNos"  header="HpsnFirstNos">
+</p-column>
+
+<p-column field="HpsnSecondTitle" [filter]="true" 
+filterPlaceholder="Search HpsnSecondTitle"  header="HpsnSecondTitle">
+</p-column>
+
+<p-column field="HpsnSecondNos" [filter]="true" 
+filterPlaceholder="Search HpsnSecondNos"  header="HpsnSecondNos">
+</p-column>
+
+<p-column field="HpsnThirdTitle" [filter]="true" 
+filterPlaceholder="Search HpsnThirdTitle"  header="HpsnThirdTitle">
+</p-column>
+
+<p-column field="HpsnThirdNos" [filter]="true" 
+filterPlaceholder="Search HpsnThirdNos"  header="HpsnThirdNos">
+</p-column>
+ <p-column styleClass="col-button" header="Delete">
+                      <template let-col let-cont="rowData" pTemplate="body">
+                        <span [style.color]="cont[col.field]">{{cont[col.field]}}</span>
+                     </template>
+                    <template pTemplate="header">
+                            <button type="button" pButton icon="fa-refresh"></button>
+                    </template>
+                    <template let-cont="rowData" pTemplate="body">
+                            <button type="button" pButton (click)="deleteRow(cont)"  icon="fa-close" label="Delete"></button>
+                    </template>
+                </p-column>
+</p-dataTable>
+

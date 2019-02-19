@@ -1,0 +1,1 @@
+export class homepageupcomingeventsTS {HpueId:string;HpueTitle:string;HpueDescrption:string;SrNo:string;HpueYear:string;}

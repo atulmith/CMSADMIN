@@ -1,0 +1,1 @@
+export class academistopstudteachersTS {AtstId:string;AtstTitle:string;}

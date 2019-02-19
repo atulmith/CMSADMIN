@@ -1,0 +1,1 @@
+export class achievementsalldetailsTS {AadId:string;AaId:string;AadName:string;AadDescriptionText:string;AadSrNo:string;}
